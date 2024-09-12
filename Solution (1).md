@@ -158,7 +158,7 @@ SSH (22)    ----> anywhere
 
 - Create a parameter for `database master password`  :
 
- `Name`         : /<yourname>/capstone/password               
+ `Name`         : /cess/capstone/password               
  `Description`  : ---
  `Tier`         : Standard
  `Type`         : SecureString   (So AWS encrypts sensitive data using KMS)
@@ -167,7 +167,7 @@ SSH (22)    ----> anywhere
 
 - Create parameter for `database username`  :
 
- `Name`         : /<yourname>/capstone/username             
+ `Name`         : /cess/capstone/username             
  `Description`  : ---
  `Tier`         : Standard
  `Type`         : SecureString   (So AWS encrypts sensitive data using KMS)
@@ -176,7 +176,7 @@ SSH (22)    ----> anywhere
 
 - Create parameter for `Github TOKEN`  :
 
- `Name`         : /<yourname>/capstone/token             
+ `Name`         : /cess/capstone/token             
  `Description`  : ---
  `Tier`         : Standard
  `Type`         : SecureString   (So AWS encrypts sensitive data using KMS)
@@ -279,7 +279,7 @@ Before we create our cluster. We need to launch NAT instance. Because, our EC2 c
 ```text 
 aws ec2 run-instances --image-id ami-0aa210fd2121a98b7 --instance-type t2.micro --key-name XXX --security-group-ids sg-XXX-natsecgrp --subnet-id subnet-XXX-publicone
 
-aws ec2 run-instances --image-id ami-0aa210fd2121a98b7 --instance-type t2.micro --key-name osvaldo --security-group-ids sg-0397823f99252679e  --subnet-id subnet-0af14f63b6eb1fd3a
+aws ec2 run-instances --image-id ami-0aa210fd2121a98b7 --instance-type t2.micro --key-name i --security-group-ids sg-0cfb2d2283327f60a  --subnet-id subnet-0142c83686cc54cb9
 
 
     - `ami-0aa210fd2121a98b7` 
@@ -310,9 +310,9 @@ Test your NAT instance:
         - change to the directory where your pem key file is
         - type: `eval $(ssh-agent)`
         - type: `ssh-add <your pem file name>`
-        - type: `ssh -A ec2-user@<IP of NAT Instance>`
+        - type: `ssh -A ec2-user@3.219.47.34`
     - When connected to the NAT instance:
-        - type `ssh ec2-user@<private IP of test instance>`
+        - type `ssh ec2-user@10.90.11.230`
     - When connected to the private instance:
         - type `curl www.google.com`
 - Terminate your test instance (NOT your NAT instance!!)        
